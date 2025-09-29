@@ -11,18 +11,18 @@ const firebaseConfig = {
   // 4. Scroll ke bagian "Your apps" > Web app
   // 5. Copy konfigurasi dan paste di sini
 
-  apiKey: "your-api-key", // Ganti dengan apiKey asli
-  authDomain: "your-project.firebaseapp.com", // Ganti dengan authDomain asli
-  projectId: "your-project-id", // Ganti dengan projectId asli
-  storageBucket: "your-project.appspot.com", // Ganti dengan storageBucket asli
-  messagingSenderId: "123456789", // Ganti dengan messagingSenderId asli
-  appId: "your-app-id" // Ganti dengan appId asli
+  apiKey: "AIzaSyA5DGgNaOujBGby2FG7Cut-2NTZIP4JpMw",
+  authDomain: "lababil-penjualan.firebaseapp.com",
+  projectId: "lababil-penjualan",
+  storageBucket: "lababil-penjualan.firebasestorage.app",
+  messagingSenderId: "96142764029",
+  appId: "1:96142764029:web:b7bb32aed1a84e0c239b94"
 };
 
 // Check if Firebase config is properly set
 const isFirebaseConfigured = () => {
-  return firebaseConfig.apiKey !== "your-api-key" &&
-         firebaseConfig.projectId !== "your-project-id";
+  return firebaseConfig.apiKey !== "AIzaSyA5DGgNaOujBGby2FG7Cut-2NTZIP4JpMw" &&
+         firebaseConfig.projectId !== "lababil-penjualan";
 };
 
 // Initialize Firebase only if properly configured
@@ -46,3 +46,4 @@ if (isFirebaseConfigured()) {
 // Export services (will be null if not configured)
 export { auth, db };
 export default app;
+
