@@ -167,71 +167,12 @@
         </svg>
     </button>
 
-    <!-- Firebase & Auth Scripts -->
+    <!-- Firebase & App Scripts -->
     <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/main.js"></script>
 
-    <!-- Login Handler -->
-    <script type="module">
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('loginForm');
-            if (!form) return;
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault(); // 🔑 Penting: hentikan reload halaman
-
-                const email = document.getElementById('email').value.trim();
-                const password = document.getElementById('password').value;
-
-                const errorMessage = document.getElementById('errorMessage');
-                const successMessage = document.getElementById('successMessage');
-                const errorMessageText = document.getElementById('errorMessageText');
-                const successMessageText = document.getElementById('successMessageText');
-                const loginButton = document.getElementById('loginButton');
-                const buttonText = document.getElementById('buttonText');
-                const loadingSpinner = document.getElementById('loadingSpinner');
-
-                // Reset pesan
-                errorMessage.classList.add('hidden');
-                successMessage.classList.add('hidden');
-
-                // Validasi
-                if (!email || !password) {
-                    errorMessageText.textContent = 'Email and password are required.';
-                    errorMessage.classList.remove('hidden');
-                    return;
-                }
-
-                // Loading
-                loginButton.disabled = true;
-                buttonText.textContent = 'Signing in...';
-                loadingSpinner.classList.remove('hidden');
-
-                try {
-                    const result = await window.auth.signIn(email, password);
-
-                    if (result.success) {
-                        successMessageText.textContent = 'Login successful! Redirecting...';
-                        successMessage.classList.remove('hidden');
-                        // Redirect otomatis oleh auth.js
-                    } else {
-                        errorMessageText.textContent = result.error || 'Login failed. Please try again.';
-                        errorMessage.classList.remove('hidden');
-                    }
-                } catch (err) {
-                    console.error('Unexpected login error:', err);
-                    errorMessageText.textContent = 'An unexpected error occurred. Please try again.';
-                    errorMessage.classList.remove('hidden');
-                } finally {
-                    loginButton.disabled = false;
-                    buttonText.textContent = 'Sign In';
-                    loadingSpinner.classList.add('hidden');
-                }
-            });
-        });
-    </script>
-
-    <!-- Theme Toggle Script (non-module) -->
+    <!-- Theme Toggle (non-module) -->
     <script>
         function toggleTheme() {
             const body = document.body;
